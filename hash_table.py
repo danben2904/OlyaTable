@@ -13,14 +13,9 @@ class HashTableIterator:
             for i in range(self._prev_c + 1, len(self._table.table()[self._prev_h])):
                 self._prev_c = i
                 return self._table.table()[self._prev_h][i]
-            self._next()
+            self._prev_h += 1
+            self._prev_c = -1
         raise StopIteration
-
-    def _next(self):
-        '''Next vals'''
-        self._prev_h += 1
-        self._prev_c = -1
-
 
 class HashTable:
     '''Hash Table iterator class'''
